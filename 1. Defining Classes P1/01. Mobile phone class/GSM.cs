@@ -13,19 +13,23 @@ public class GSM
     private Battery currentBattery;
 
     //constructors
-    public GSM(string model, string manufacturer) : this(model, manufacturer, null, null, null, null)
+    public GSM(string model, string manufacturer)
+        : this(model, manufacturer, null, null, null, null)
     {
     }
 
-    public GSM(string model, string manufacturer, float price) : this(model, manufacturer, price, null, null, null)
+    public GSM(string model, string manufacturer, float price)
+        : this(model, manufacturer, price, null, null, null)
     {
     }
 
-    public GSM(string model, string manufacturer, string owner) : this(model, manufacturer, null, owner, null, null)
+    public GSM(string model, string manufacturer, string owner)
+        : this(model, manufacturer, null, owner, null, null)
     {
     }
 
-    public GSM(string model, string manufacturer, Display currentDisplay, Battery currentBattery): this(model, manufacturer, null, null, currentDisplay, currentBattery)
+    public GSM(string model, string manufacturer, Display currentDisplay, Battery currentBattery)
+        : this(model, manufacturer, null, null, currentDisplay, currentBattery)
     {
     }
 
@@ -40,9 +44,40 @@ public class GSM
     }
 
     //properties
+    public string Model
+    {
+        get { return this.model; }
+        set { this.model = value; }
+    }
+    public string Manufacturer
+    {
+        get { return this.manufacturer; }
+        set { this.manufacturer = value; }
+    }
+    public float Price
+    {
+        get { return this.price; }
+        set { this.price = value; }
+    }
+    public string owner
+    {
+        get { return this.owner; }
+        set { this.owner = value; }
+    }
+    public Display CurrentDisplay
+    {
+        get { return this.currentDisplay; }
+        set { this.currentDisplay = value; }
+    }
+    public Battery CurrentBattery
+    {
+        get { return this.currentBattery; }
+        set { this.currentBattery= value; }
+    }
+
     //methods
     public override string ToString()
-    { 
+    {
         return string.Format("Model - {0}/n Manufacturer - {1}/n Price - {2}/n");
     }
 }

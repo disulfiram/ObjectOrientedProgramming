@@ -36,4 +36,26 @@ class Battery
         this.talkHours = talkHours;
         this.type = type;
     }
+
+    //properties
+    public string Model
+    {
+        get { return this.model; }
+        set { this.model = value; }
+    }
+    public int? IdleHours
+    {
+        get { return this.idleHours; }
+        set { this.idleHours = value; }
+    }
+    public string TalkHours
+    {
+        get { return this.talkHours; }
+        set { this.talkHours = value; }
+    }
+    public BatteryType Type
+    {
+        get { return this.type; }
+        set { this.type = value; }
+    }
 }

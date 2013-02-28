@@ -22,4 +22,16 @@ class Display
         this.resolution = resolution;
         this.colors = colors;
     }
+
+    //properties
+    public string Resolution
+    {
+        get { return this.resolution; }
+        set { this.resolution = value; }
+    }
+    public string Colors
+    {
+        get { return this.colors; }
+        set { this.colors = value; }
+    }
 }
