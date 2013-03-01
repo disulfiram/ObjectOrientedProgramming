@@ -11,25 +11,22 @@ public class GSM
     private string owner;
     private Display currentDisplay;
     private Battery currentBattery;
+    private static GSM iPhone4S;
 
     //constructors
-    public GSM(string model, string manufacturer)
-        : this(model, manufacturer, null, null, null, null)
+    public GSM(string model, string manufacturer) : this(model, manufacturer, null, null, null, null)
     {
     }
 
-    public GSM(string model, string manufacturer, float price)
-        : this(model, manufacturer, price, null, null, null)
+    public GSM(string model, string manufacturer, float price) : this(model, manufacturer, price, null, null, null)
     {
     }
 
-    public GSM(string model, string manufacturer, string owner)
-        : this(model, manufacturer, null, owner, null, null)
+    public GSM(string model, string manufacturer, string owner) : this(model, manufacturer, null, owner, null, null)
     {
     }
 
-    public GSM(string model, string manufacturer, Display currentDisplay, Battery currentBattery)
-        : this(model, manufacturer, null, null, currentDisplay, currentBattery)
+    public GSM(string model, string manufacturer, Display currentDisplay, Battery currentBattery) : this(model, manufacturer, null, null, currentDisplay, currentBattery)
     {
     }
 
@@ -43,37 +40,83 @@ public class GSM
         this.currentBattery = currentBattery;
     }
 
+
     //properties
     public string Model
     {
-        get { return this.model; }
-        set { this.model = value; }
+        get
+        {
+            return this.model;
+        }
+        set
+        {
+            this.model = value;
+        }
     }
+
     public string Manufacturer
     {
-        get { return this.manufacturer; }
-        set { this.manufacturer = value; }
+        get
+        {
+            return this.manufacturer;
+        }
+        set
+        {
+            this.manufacturer = value;
+        }
     }
-    public float Price
+
+    public float? Price
     {
-        get { return this.price; }
-        set { this.price = value; }
+        get
+        {
+            return this.price;
+        }
+        set
+        {
+            if (value > 0)
+            {
+                this.price = value;
+            }
+        }
     }
-    public string owner
+
+    public string Owner
     {
-        get { return this.owner; }
-        set { this.owner = value; }
+        get
+        {
+            return this.owner;
+        }
+        set
+        {
+            this.owner = value;
+        }
     }
+
     public Display CurrentDisplay
     {
-        get { return this.currentDisplay; }
-        set { this.currentDisplay = value; }
+        get
+        {
+            return this.currentDisplay;
+        }
+        set
+        {
+            this.currentDisplay = value;
+        }
     }
+
     public Battery CurrentBattery
     {
-        get { return this.currentBattery; }
-        set { this.currentBattery= value; }
+        get
+        {
+            return this.currentBattery;
+        }
+        set
+        {
+            this.currentBattery = value;
+        }
     }
+    
 
     //methods
     public override string ToString()

@@ -1,7 +1,13 @@
 ﻿using System;
 using System.Linq;
 
-public enum BatteryType {unknown, LiIon, NiMH, NiCd};
+public enum BatteryType
+{
+    unknown,
+    LiIon,
+    NiMH,
+    NiCd
+};
 
 class Battery
 {
@@ -40,22 +46,58 @@ class Battery
     //properties
     public string Model
     {
-        get { return this.model; }
-        set { this.model = value; }
+        get
+        {
+            return this.model;
+        }
+        set
+        {
+            this.model = value;
+        }
     }
+
     public int? IdleHours
     {
-        get { return this.idleHours; }
-        set { this.idleHours = value; }
+        get
+        {
+            return this.idleHours;
+        }
+        set 
+        {
+            if (value > 0)
+            {
+                this.idleHours = value; 
+            }
+        }
     }
-    public string TalkHours
+
+    public int? TalkHours
     {
-        get { return this.talkHours; }
-        set { this.talkHours = value; }
+        get
+        {
+            return this.talkHours;
+        }
+        set
+        {
+            if (value > 0)
+            {
+                this.talkHours = value;
+            }
+        }
     }
+
     public BatteryType Type
     {
-        get { return this.type; }
-        set { this.type = value; }
+        get
+        {
+            return this.type;
+        }
+        set
+        {
+            if (value >= 0 && value < 3)
+            {
+                this.type = value;
+            }
+        }
     }
 }

@@ -7,12 +7,13 @@ class Display
     private string resolution;
     private int? colors;
 
+
     //constructors
-    public Display() : this (null, null)
+    public Display() : this(null, null)
     { 
     }
 
-    public Display(string resolution) : this (resolution, null)
+    public Display(string resolution) : this(resolution, null)
     {
         this.resolution = resolution;
     }
@@ -23,15 +24,32 @@ class Display
         this.colors = colors;
     }
 
+
     //properties
     public string Resolution
     {
-        get { return this.resolution; }
-        set { this.resolution = value; }
+        get
+        {
+            return this.resolution;
+        }
+        set
+        {
+            this.resolution = value;
+        }
     }
-    public string Colors
+
+    public int? Colors
     {
-        get { return this.colors; }
-        set { this.colors = value; }
+        get
+        {
+            return this.colors;
+        }
+        set
+        {
+            if (value > 1)
+            {
+                this.colors = value;
+            }
+        }
     }
 }
