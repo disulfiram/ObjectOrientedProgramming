@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
@@ -11,7 +12,8 @@ public class GSM
     private string owner;
     private Display currentDisplay;
     private Battery currentBattery;
-    private static GSM iPhone4S;
+    private List<Call> callHistory;
+    public static readonly GSM iPhone4S = new GSM("iPhone4S", "Apple", null, null, Display.iPhone4SDisplay, Battery.iPhone4SBattery);
 
     //constructors
     public GSM(string model, string manufacturer) : this(model, manufacturer, null, null, null, null)
@@ -38,8 +40,8 @@ public class GSM
         this.owner = owner;
         this.currentDisplay = currentDisplay;
         this.currentBattery = currentBattery;
+        this.callHistory = new List<Call>();
     }
-
 
     //properties
     public string Model
@@ -50,6 +52,10 @@ public class GSM
         }
         set
         {
+            if (value == null)
+            {
+                throw new ArgumentNullException("Model is obligatory!");
+            }
             this.model = value;
         }
     }
@@ -62,6 +68,10 @@ public class GSM
         }
         set
         {
+            if (value == null)
+            {
+                throw new ArgumentNullException("Manufacturer is obligatory");
+            }
             this.manufacturer = value;
         }
     }
@@ -116,11 +126,40 @@ public class GSM
             this.currentBattery = value;
         }
     }
-    
 
+    public List<Call> CallHistory { get; set; }
+    
     //methods
     public override string ToString()
     {
         return string.Format("Model - {0}/n Manufacturer - {1}/n Price - {2}/n");
+    }
+
+    public void CallAdd(Call newCall)   //method for adding calls
+    {
+        CallHistory.Add(newCall);
+    }
+
+    public void CallRemove(int indexOfCall)
+    {
+        this.callHistory.RemoveAt(indexOfCall);
+    }
+
+    public void ClearHistory()          //method for clearing history
+    {
+        CallHistory.Clear();
+    }
+
+    public decimal CallCosts(decimal pricePerMinute)
+    {
+        decimal totalCost = 0;
+        foreach (Call call in CallHistory)
+        {
+            int seconds = call.CallLength.Second;
+            int minutes = call.CallLength.Minute;
+            decimal callPrice = (decimal)((seconds / 60) + minutes) * pricePerMinute;
+            totalCost += callPrice;
+        }
+        return totalCost;
     }
 }

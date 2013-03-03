@@ -6,7 +6,7 @@ class Display
     //fields
     private string resolution;
     private int? colors;
-
+    public static readonly Display iPhone4SDisplay = new Display("960 x 400", 16000000);
 
     //constructors
     public Display() : this(null, null)
@@ -23,7 +23,6 @@ class Display
         this.resolution = resolution;
         this.colors = colors;
     }
-
 
     //properties
     public string Resolution
@@ -46,10 +45,11 @@ class Display
         }
         set
         {
-            if (value > 1)
+            if (value > 2)
             {
-                this.colors = value;
+                throw new ArgumentOutOfRangeException("The display cannot have less than 2 colors!");
             }
+            this.colors = value;
         }
     }
 }

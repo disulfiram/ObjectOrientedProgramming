@@ -3,59 +3,45 @@ using System.Linq;
 
 public enum BatteryType
 {
-    unknown,
+    Unknown,
     LiIon,
     NiMH,
-    NiCd
+    NiCd,
+    LiPo
 };
 
 class Battery
 {
     //fields
-    private string model;
     private int? idleHours;
     private int? talkHours;
     public BatteryType type;
+    public static readonly Battery iPhone4SBattery = new Battery(200, 14, BatteryType.LiPo);
+
 
     //contructors
-    public Battery() : this(null, null, null, 0)
+    public Battery() : this( null, null, BatteryType.Unknown)
     {
     }
 
-    public Battery(string model) : this(model, null, null, 0)
+    public Battery(int idleHours, int talkHours) : this(idleHours, talkHours, BatteryType.Unknown)
     {
     }
 
-    public Battery(int idleHours, int talkHours) : this(null, idleHours, talkHours, 0)
-    {
-    }
-
-    public Battery(BatteryType type) : this(null, null, null, type)
+    public Battery(BatteryType type) : this(null, null, type)
     {
         this.type = type;
     }
 
-    public Battery(string model, int? idleHours, int? talkHours, BatteryType type)
+    public Battery(int? idleHours, int? talkHours, BatteryType type)
     {
-        this.model = model;
         this.idleHours = idleHours;
         this.talkHours = talkHours;
         this.type = type;
     }
 
-    //properties
-    public string Model
-    {
-        get
-        {
-            return this.model;
-        }
-        set
-        {
-            this.model = value;
-        }
-    }
 
+    //properties
     public int? IdleHours
     {
         get
@@ -64,10 +50,11 @@ class Battery
         }
         set 
         {
-            if (value > 0)
+            if (value < 0)
             {
-                this.idleHours = value; 
+                throw new ArgumentOutOfRangeException("Cannot be negative!"); 
             }
+            this.idleHours = value; 
         }
     }
 
@@ -79,10 +66,11 @@ class Battery
         }
         set
         {
-            if (value > 0)
+            if (value < 0)
             {
-                this.talkHours = value;
+                throw new ArgumentOutOfRangeException("Cannot be negative!");
             }
+            this.talkHours = value;
         }
     }
 
@@ -94,10 +82,7 @@ class Battery
         }
         set
         {
-            if (value >= 0 && value < 3)
-            {
-                this.type = value;
-            }
+            this.type = value;
         }
     }
 }

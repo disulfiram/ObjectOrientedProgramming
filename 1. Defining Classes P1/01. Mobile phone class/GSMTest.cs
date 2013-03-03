@@ -36,8 +36,8 @@ class Program
             Console.Write("Battery talk time:");
             int? talkHours = int.Parse(Console.ReadLine());
             Console.Write("Battery type: ");
-            BatteryType type = Console.ReadLine();
-            Battery currentBattery = new Battery(batteryModel, idleHours, talkHours, type);
+            BatteryType type = (BatteryType)Enum.Parse(typeof(BatteryType), Console.ReadLine());        //test!!
+            Battery currentBattery = new Battery(idleHours, talkHours, type);
 
             GSM currentGSM = new GSM(model, manufacturer, price, owner, currentDisplay, currentBattery);
             arrayOfGSM.Add(currentGSM);
