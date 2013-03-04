@@ -14,6 +14,7 @@ public class GSM
     private List<Call> callHistory;
     public static readonly GSM iPhone4S = new GSM("iPhone4S", "Apple", null, null, Display.iPhone4SDisplay, Battery.iPhone4SBattery);
 
+
     //constructors
     public GSM(string model, string manufacturer) : this(model, manufacturer, null, null, new Display(), new Battery())
     {
@@ -41,6 +42,7 @@ public class GSM
         this.currentBattery = currentBattery;
         this.callHistory = new List<Call>();
     }
+
 
     //properties
     public string Model
@@ -136,17 +138,25 @@ public class GSM
         }
     }
 
-    public List<Call> CallHistory { get; set; }
+    public List<Call> CallHistory
+    {
+        get
+        {
+            return this.callHistory;
+        }
+    }
     
+
     //methods
     public override string ToString()
     {
         return string.Format("Model - {0}\nManufacturer - {1}\nPrice - {2}\nOwner - {3}\nBattery:\n{4}\nDisplay:\n{5}", this.Model == null ? "unknown" : this.Model, this.Manufacturer == null ? "unknown" : this.Manufacturer, this.Price == null ? "unknown" : this.Price.ToString(), this.Owner == null ? "unknown" : this.Owner, this.CurrentBattery.ToString(), this.CurrentDisplay.ToString());
     }
 
-    public void CallAdd(Call newCall)   //method for adding calls
+    public List<Call> CallAdd(Call newCall)   //method for adding calls
     {
-        CallHistory.Add(newCall);
+        this.callHistory.Add(newCall);
+        return callHistory;
     }
 
     public void CallRemove(int indexOfCall)
@@ -156,17 +166,18 @@ public class GSM
 
     public void ClearHistory()          //method for clearing history
     {
-        CallHistory.Clear();
+        this.callHistory.Clear();
     }
 
     public decimal CallCosts(decimal pricePerMinute)
     {
         decimal totalCost = 0;
-        foreach (Call call in CallHistory)
+        foreach (Call call in callHistory)
         {
-            int seconds = call.CallLength.Second;
-            int minutes = call.CallLength.Minute;
-            decimal callPrice = (decimal)((seconds / 60) + minutes) * pricePerMinute;
+            int seconds = call.CallLength.Seconds;
+            int minutes = call.CallLength.Minutes;
+            int hours = call.CallLength.Hours;
+            decimal callPrice = (decimal)((seconds / 60) + minutes+(hours*60)) * pricePerMinute;
             totalCost += callPrice;
         }
         return totalCost;

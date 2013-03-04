@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01. Mobile phone class", "01. Mobile phone class\01. Mobile phone class.csproj", "{9558A813-338C-4F08-94E9-0F631FCFE10B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. Mobile phone calls", "02. Mobile phone calls\02. Mobile phone calls.csproj", "{9AEC79AF-EFBA-4BE1-AF86-346A2409EDBF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{9558A813-338C-4F08-94E9-0F631FCFE10B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9558A813-338C-4F08-94E9-0F631FCFE10B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9558A813-338C-4F08-94E9-0F631FCFE10B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AEC79AF-EFBA-4BE1-AF86-346A2409EDBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AEC79AF-EFBA-4BE1-AF86-346A2409EDBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AEC79AF-EFBA-4BE1-AF86-346A2409EDBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AEC79AF-EFBA-4BE1-AF86-346A2409EDBF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
