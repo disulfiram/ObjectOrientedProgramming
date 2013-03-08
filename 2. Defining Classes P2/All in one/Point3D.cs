@@ -37,11 +37,15 @@ struct Point3D
     //methods
     public override string ToString()
     {
-        return string.Format("X coordinate: {0}\nY coordinate: {1}\n Z coordinate: {2}", this.CoordinateX, this.CoordinateY, this.CoordinateZ);
+        return string.Format("( {0}, {1}, {2} )",this.CoordinateX, this.CoordinateY, this.CoordinateZ);
     }
     static public Point3D Parse(string pointCoordinatesInString)
     {
-        char separator = ' ';
-        pointCoordinatesInString.Split(separator);
+        char separator = ',';
+        string[] splitedCoords = pointCoordinatesInString.Split(separator);
+        int xCoordinate = int.Parse(splitedCoords[0].Trim());
+        int yCoordinate = int.Parse(splitedCoords[1].Trim());
+        int zCoordinate = int.Parse(splitedCoords[2].Trim());
+        return new Point3D(xCoordinate, yCoordinate, zCoordinate);
     }
 }

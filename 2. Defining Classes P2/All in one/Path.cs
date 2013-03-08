@@ -4,21 +4,32 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 class Path
 {
     //fields
     private readonly List<Point3D> pathPoints;
+
+
     //properties
+    public List<Point3D> List
+    {
+        get
+        {
+            return this.pathPoints;
+        }
+    }
+    
+
     //constructors
     public Path() : this( new List<Point3D>())
     {
     }
-    public Path(List<Point3D> pathPoints) : this()
+    public Path(List<Point3D> pathPoints)
     {
         this.pathPoints = pathPoints;
     }
+
 
     //methods
     public Path AddPoint(Point3D point)
@@ -35,5 +46,12 @@ class Path
     {
         pathPoints.Clear();
         return new Path(this.pathPoints);
+    }
+    public void PrintToConsole()
+    {
+        for (int point = 0; point < this.pathPoints.Count; point++)
+        {
+            Console.WriteLine(pathPoints[point].ToString());
+        }
     }
 }
