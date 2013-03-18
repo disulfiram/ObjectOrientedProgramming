@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Animal_Kingdom
 {
@@ -17,7 +13,7 @@ namespace Animal_Kingdom
         #endregion
         
         #region Properties
-            
+        
         public string Gender
         {
             get
@@ -41,7 +37,7 @@ namespace Animal_Kingdom
                 {
                     this.isFemale = true;
                 }
-                if (value.ToLower() == "male")
+                else if (value.ToLower() == "male")
                 {
                     this.isFemale = false;   
                 }
@@ -49,9 +45,10 @@ namespace Animal_Kingdom
                 {
                     throw new ArgumentOutOfRangeException("Animal can either be male or female!");
                 }
+
             }
         }
-            
+        
         public byte Age
         {
             get
@@ -67,6 +64,7 @@ namespace Animal_Kingdom
                 this.age = value;
             }
         }
+        
         public string Name
         {
             get
@@ -78,25 +76,32 @@ namespace Animal_Kingdom
                 this.name = value;
             }
         }
+        
         #endregion
-    
+        
         #region Constructors
+        
         public Animal(string name, byte age, string gender)
         {
             this.Name = name;
             this.Age = age;
             this.Gender = gender;
         }
-
+        
         #endregion
-
+        
         #region Methods
-
+        
         public virtual void Sound()
         {
             Console.WriteLine("I am an animal and I don't know how to speak.");
         }
-
+        
+        public override string ToString()
+        {
+            return string.Format("{0}, Name: {1}, Age: {2}, Gender: {3}", this.GetType(), this.Name, this.Age, this.Gender);
+        }
+    
         #endregion
     }
 }

@@ -1,12 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Animal_Kingdom
 {
-    class Kitten:Cat
+    class Kitten : Cat
     {
+        #region Constructors
+        
+        public Kitten(string name, byte age) : base(name, age, "female")
+        { 
+        }
+    
+        #endregion
     }
 }
