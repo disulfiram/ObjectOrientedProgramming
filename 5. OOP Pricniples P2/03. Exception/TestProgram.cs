@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Exception
 {
@@ -46,6 +42,10 @@ namespace Exception
             catch (InvalidRangeException<DateTime> myException)
             {
                 Console.WriteLine("The date must be between {0} and {1}!", myException.Start, myException.End);
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
     }
