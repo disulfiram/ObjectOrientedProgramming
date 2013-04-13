@@ -74,13 +74,13 @@ class ExtensionsTest
         testList.Add(3);
         testList.Add(5);
         testList.Add(-5);
-        Console.WriteLine("Sum: {0}", testList.Sum<int>());
+        Console.WriteLine("Sum: {0}",testList.Sum<int>());
         Console.WriteLine("Min: {0}", testList.Min<int>());
         Console.WriteLine("Max: {0}", testList.Max<int>());
         Console.WriteLine("Product: {0}", testList.Product<int>());
         Console.WriteLine("Avarage: {0}", testList.Avarage<int>());
         testList.Sum();
-        int[] intArr = { 3, 5, -5, 20, -10 };
+        int[] intArr = { 3, 5, -5,20,-10 };
         Console.WriteLine("Sum: {0}", intArr.Sum<int>());
         Console.WriteLine("Min: {0}", intArr.Min<int>());
         Console.WriteLine("Max: {0}", intArr.Max<int>());

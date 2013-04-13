@@ -96,7 +96,7 @@ class Matrix<T>
         return subtractedMatrix;
     }
 
-    public static Matrix<T> operator *(Matrix<T> matrix1, Matrix<T> matrix2)
+    public static Matrix<T> operator -(Matrix<T> matrix1, Matrix<T> matrix2)
     {
         if (matrix1.Rows != matrix2.Colomns)
         {
@@ -110,6 +110,5 @@ class Matrix<T>
                 multipliedMatrix[row, cols] = (dynamic)matrix1[row, cols] * (dynamic)matrix2[row, cols];
             }
         }
-        return multipliedMatrix;
     }
 }

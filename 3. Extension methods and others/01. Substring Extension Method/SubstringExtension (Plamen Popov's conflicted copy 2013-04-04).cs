@@ -11,9 +11,15 @@ using System.Text;
 
 static class SubstringExtension
 {
-    public static StringBuilder MySubstring(this StringBuilder str, int index, int length)
+    public static StringBuilder MySubstring(this StringBuilder str, int beginning, int length)
     {
-        return new StringBuilder(str.ToString().Substring(index, length));
+        string stringBuilt = str.ToString();
+        string[] letterArray = new string[length];
+        for (int index = beginning, arrIndex = 0; arrIndex < length; index++, arrIndex++)
+        {
+            letterArray[arrIndex] = stringBuilt[index].ToString();
+        }                                                           //first of all, I am sure this is not optimal
+        return new StringBuilder(string.Join("",letterArray));      //second, I think the result is shifted with one index. Don't be hatin!
     }
 }
 

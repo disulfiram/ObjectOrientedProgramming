@@ -25,7 +25,7 @@ namespace Geometry
 
         public override string ToString()
         {
-            return string.Format("{0}\nWidth: {1}\nHeight: {2}\nArea: {3}", this.GetType().Name, this.Width, this.Height, this.CalculateArea());
+            return string.Format("{0}\nWidth: {1}\nHeight: {2}\nArea: {3}", this.GetType(), this.Width, this.Height, this.CalculateArea());
         }
     }
 }
